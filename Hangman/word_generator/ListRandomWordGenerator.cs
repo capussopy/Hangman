@@ -1,6 +1,6 @@
 ﻿namespace Hangman;
 
-public class RandomWordGenerator
+public class ListRandomWordGenerator: RandomWordGenerator
 {
     private readonly Random _random = new();
     private readonly List<string> _words = new()

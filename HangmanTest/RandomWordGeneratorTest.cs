@@ -8,7 +8,7 @@ public class RandomWordGeneratorTestShould
     [Test]
     public void ReturnARandomWordInUpperCase()
     {
-        var generator = new RandomWordGenerator();
+        var generator = new ListRandomWordGenerator();
 
         var result = generator.GetNext();
         
