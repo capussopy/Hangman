@@ -1,4 +1,7 @@
 ﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
-	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0daa222b_002D2502_002D4f5c_002Dae48_002Dae95bf33e89a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="RandomWordGeneratorTestShould" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=0daa222b_002D2502_002D4f5c_002Dae48_002Dae95bf33e89a/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" Name="RandomWordGeneratorTestShould" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
+  &lt;Project Location="C:\Users\jan\Downloads\Hangman\HangmanTest" Presentation="&amp;lt;HangmanTest&amp;gt;" /&gt;&#xD;
+&lt;/SessionState&gt;</s:String>
+	<s:String x:Key="/Default/Environment/UnitTesting/UnitTestSessionStore/Sessions/=3321b208_002Dbc8e_002D4022_002Db93b_002Da997570cf846/@EntryIndexedValue">&lt;SessionState ContinuousTestingMode="0" IsActive="True" Name="All tests from &amp;lt;HangmanTest&amp;gt;" xmlns="urn:schemas-jetbrains-com:jetbrains-ut-session"&gt;&#xD;
   &lt;Project Location="C:\Users\jan\Downloads\Hangman\HangmanTest" Presentation="&amp;lt;HangmanTest&amp;gt;" /&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>

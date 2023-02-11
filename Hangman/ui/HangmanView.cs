@@ -1,4 +1,6 @@
-﻿namespace Hangman;
+﻿using Hangman.core;
+
+namespace Hangman.ui;
 
 public class HangmanView
 {
@@ -10,6 +12,7 @@ public class HangmanView
         {
             { CurrentGameState.CorrectGuess, ShowCorrectGuessMessage },
             { CurrentGameState.WrongGuess, ShowWrongGuessMessage },
+            { CurrentGameState.LetterAlreadyGuessed, ShowLetterAlreadyGuessed },
             { CurrentGameState.Won, ShowWonMessage },
             { CurrentGameState.Loose, ShowLooseMessage },
         };
@@ -33,6 +36,7 @@ public class HangmanView
             Console.WriteLine("Invalid input!");
             return GetNextInput();
         }
+
         return input;
     }
 
@@ -55,13 +59,19 @@ public class HangmanView
     private void ShowWrongGuessMessage(IGameState state)
     {
         Console.WriteLine($"Your guess was wrong. You have {state.GetRemainingTries()} tries left");
-        Console.WriteLine("Very Bad image here :(");
+        Console.WriteLine($"{HangmanStateImage.Get(state.GetUsedTries())}");
         Console.WriteLine($"Word: {state.GetWord()}");
+    }
+
+    private void ShowLetterAlreadyGuessed(IGameState state)
+    {
+        Console.WriteLine("You already guessed this letter. Try another!");
     }
 
     private void ShowLooseMessage(IGameState state)
     {
         Console.WriteLine($"You have loose this game!");
+        Console.WriteLine($"{HangmanStateImage.Get(state.GetUsedTries())}");
     }
 
     private void ShowWonMessage(IGameState state)

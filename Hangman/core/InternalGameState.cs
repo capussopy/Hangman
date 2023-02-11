@@ -2,7 +2,7 @@
 
 public class InternalGameState : IGameState
 {
-    private int _usedTries;
+    private int _usedTries = 0;
     private int _remainingTries;
     private CurrentGameState _state = CurrentGameState.Start;
     private string _word;

@@ -1,4 +1,6 @@
-﻿namespace Hangman;
+﻿using Hangman.ui;
+
+namespace Hangman;
 
 public class HangmanController
 {

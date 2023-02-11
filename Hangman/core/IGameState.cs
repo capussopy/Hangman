@@ -1,4 +1,4 @@
-﻿namespace Hangman;
+﻿namespace Hangman.core;
 
 public interface IGameState
 {
