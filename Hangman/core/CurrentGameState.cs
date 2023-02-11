@@ -1,10 +1,11 @@
 ﻿namespace Hangman;
 
-public enum GameState
+public enum CurrentGameState
 {
-    LetterAlreadyGuessed,
+    Start,
     CorrectGuess,
     WrongGuess,
+    LetterAlreadyGuessed,
     Won,
     Loose
 }
