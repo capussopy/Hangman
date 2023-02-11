@@ -1,4 +1,5 @@
 ﻿using Hangman;
+using Hangman.word_generator;
 
 
 namespace HangmanTest;
@@ -8,7 +9,7 @@ public class RandomWordGeneratorTestShould
     [Test]
     public void ReturnARandomWordInUpperCase()
     {
-        var generator = new ListRandomWordGenerator();
+        var generator = new TextFileRandomWordGenerator();
 
         var result = generator.GetNext();
         
