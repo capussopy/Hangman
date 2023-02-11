@@ -30,13 +30,14 @@ public class HangmanGame
             return _state.WithAlreadyGuessed();
         }
 
+        _guessedLetters.Add(guess);
+        
         if (IsGuessWrong(guess))
         {
             return _state.WithWrongGuess();
         }
 
         UpdateWord(guess);
-        _guessedLetters.Add(guess);
         return _state.WithCorrectGuess(_word);
     }
 
@@ -59,5 +60,10 @@ public class HangmanGame
                 _word = _word.Remove(i, 1).Insert(i, guess.ToString());
             }
         }
+    }
+
+    public bool IsGameRunning()
+    {
+        return _state.GetState() != CurrentGameState.Loose && _state.GetState() != CurrentGameState.Won;
     }
 }
