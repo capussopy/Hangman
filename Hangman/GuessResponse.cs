@@ -3,10 +3,11 @@
 public class GuessResponse
 {
     private const int NumberOfTries = 10;
-    public int UsedTries { get; }
-    public int RemainingTries { get; }
-    public GameState State { get; }
-    public string Word { get; }
+    public  HashSet<char> GuessedLetters { get; } = new();
+    public int UsedTries { get; private set; }
+    public int RemainingTries { get; private set; }
+    public GameState State { get; set; }
+    public string Word { get; set; }
 
     public GuessResponse(int usedTries, GameState state, string word)
     {
@@ -14,5 +15,16 @@ public class GuessResponse
         RemainingTries = NumberOfTries - usedTries;
         State = state;
         Word = word;
+    }
+
+    public GuessResponse(int numberOfTries)
+    {
+        RemainingTries = numberOfTries;
+    }
+
+    public void WrongTry()
+    {
+        UsedTries++;
+        RemainingTries--;
     }
 }

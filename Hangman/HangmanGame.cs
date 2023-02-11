@@ -1,55 +1,64 @@
 ﻿namespace Hangman;
 
-
 public class HangmanGame
 {
-    private readonly HashSet<char> _guessedLetters = new();
+    private const int NumberOfTries = 10;
     private readonly string _wordToGuess;
-    private string _word;
-    private int _tries = 0;
+    private readonly GuessResponse _state = new(NumberOfTries);
 
     public HangmanGame(RandomWordGenerator generator)
     {
         _wordToGuess = generator.GetNext();
-        _word = new string('_', _wordToGuess.Length);
+        _state.Word = new string('_', _wordToGuess.Length);
     }
 
     public string GetWord()
     {
-        return _word;
+        return _state.Word;
     }
 
     public GuessResponse Guess(char guess)
     {
-        if (_guessedLetters.Contains(guess))
+        if (_state.GuessedLetters.Contains(guess))
         {
-            return new GuessResponse(_tries, GameState.LetterAlreadyGuessed, _word);
+            _state.State = GameState.LetterAlreadyGuessed;
+            return _state;
         }
 
         if (!_wordToGuess.Contains(guess))
         {
-            _tries++;
-            if (_tries == 10)
+            _state.WrongTry();
+            if (_state.UsedTries == NumberOfTries)
             {
-                return new GuessResponse(_tries, GameState.Loose, _word);
+                _state.State = GameState.Loose;
+                return _state;
             }
-            return new GuessResponse(_tries, GameState.WrongGuess, _word);
+
+            _state.State = GameState.WrongGuess;
+            return _state;
         }
 
-        for (var i = 0; i < _word.Length; i++)
+        UpdateWord(guess);
+
+        if (_wordToGuess == _state.Word)
+        {
+            _state.State = GameState.Won;
+            return _state;
+        }
+
+        _state.GuessedLetters.Add(guess);
+        _state.State = GameState.CorrectGuess;
+        return _state;
+    }
+
+    private void UpdateWord(char guess)
+    {
+        for (var i = 0; i < _wordToGuess.Length; i++)
         {
             if (_wordToGuess[i] == guess)
             {
-                _word = _word.Remove(i, 1).Insert(i, guess.ToString());
+                _state.Word = _state.Word.Remove(i, 1).Insert(i, guess.ToString());
             }
         }
-
-        if (_wordToGuess == _word)
-        {
-            return new GuessResponse(_tries, GameState.Won, _word);
-        }
-
-        _guessedLetters.Add(guess);
-        return new GuessResponse(_tries, GameState.CorrectGuess, _word);
     }
 }
