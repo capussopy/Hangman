@@ -1,14 +1,15 @@
-﻿using Hangman.ui;
+﻿using Hangman.core;
+using Hangman.ui;
 
-namespace Hangman;
+namespace Hangman.controller;
 
 public class HangmanController
 {
     private readonly HangmanGame _game;
-    private readonly HangmanView _view;
+    private readonly IHangmanView _view;
 
 
-    public HangmanController(HangmanGame game, HangmanView view)
+    public HangmanController(HangmanGame game, IHangmanView view)
     {
         _game = game;
         _view = view;

@@ -1,4 +1,5 @@
 ﻿using Hangman;
+using Hangman.core;
 using HangmanTest.helper;
 
 namespace HangmanTest;

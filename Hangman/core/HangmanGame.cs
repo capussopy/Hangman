@@ -1,6 +1,4 @@
-﻿using Hangman.core;
-
-namespace Hangman;
+﻿namespace Hangman.core;
 
 public class HangmanGame
 {
