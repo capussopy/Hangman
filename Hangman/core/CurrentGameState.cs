@@ -7,5 +7,5 @@ public enum CurrentGameState
     WrongGuess,
     LetterAlreadyGuessed,
     Won,
-    Loose
+    Lost
 }

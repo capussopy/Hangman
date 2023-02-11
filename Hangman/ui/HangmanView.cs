@@ -14,7 +14,7 @@ public class HangmanView
             { CurrentGameState.WrongGuess, ShowWrongGuessMessage },
             { CurrentGameState.LetterAlreadyGuessed, ShowLetterAlreadyGuessed },
             { CurrentGameState.Won, ShowWonMessage },
-            { CurrentGameState.Loose, ShowLooseMessage },
+            { CurrentGameState.Lost, ShowLostMessage },
         };
     }
 
@@ -68,14 +68,14 @@ public class HangmanView
         Console.WriteLine("You already guessed this letter. Try another!");
     }
 
-    private void ShowLooseMessage(IGameState state)
+    private void ShowLostMessage(IGameState state)
     {
-        Console.WriteLine($"You have loose this game!");
+        Console.WriteLine($"You lost this game!");
         Console.WriteLine($"{HangmanStateImage.Get(state.GetUsedTries())}");
     }
 
     private void ShowWonMessage(IGameState state)
     {
-        Console.WriteLine($"You have won! The word is {state.GetWord()}");
+        Console.WriteLine($"You won! The word is {state.GetWord()}");
     }
 }

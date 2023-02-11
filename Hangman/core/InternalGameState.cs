@@ -23,7 +23,7 @@ public class InternalGameState : IGameState
     {
         _usedTries++;
         _remainingTries--;
-        _state = _remainingTries == 0 ? CurrentGameState.Loose : CurrentGameState.WrongGuess;
+        _state = _remainingTries == 0 ? CurrentGameState.Lost : CurrentGameState.WrongGuess;
         return this;
     }
 

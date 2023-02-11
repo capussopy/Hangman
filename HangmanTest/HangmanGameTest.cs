@@ -136,7 +136,7 @@ public class HangmanGameTestShould
 
         var result = _hangmanGame.Guess('O');
         
-        Assert.That(result.GetState(), Is.EqualTo(CurrentGameState.Loose));
+        Assert.That(result.GetState(), Is.EqualTo(CurrentGameState.Lost));
         Assert.That(result.GetWord(), Is.EqualTo("_______"));
         Assert.That(result.GetUsedTries(), Is.EqualTo(10));
         Assert.That(result.GetRemainingTries(), Is.EqualTo(0));
@@ -159,7 +159,7 @@ public class HangmanGameTestShould
 
         var result = _hangmanGame.Guess('O');
         
-        Assert.That(result.GetState(), Is.EqualTo(CurrentGameState.Loose));
+        Assert.That(result.GetState(), Is.EqualTo(CurrentGameState.Lost));
         Assert.That(result.GetWord(), Is.EqualTo("HA___A_"));
         Assert.That(result.GetUsedTries(), Is.EqualTo(10));
         Assert.That(result.GetRemainingTries(), Is.EqualTo(0));

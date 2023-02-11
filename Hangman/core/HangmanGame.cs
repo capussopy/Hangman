@@ -64,6 +64,6 @@ public class HangmanGame
 
     public bool IsGameRunning()
     {
-        return _state.GetState() != CurrentGameState.Loose && _state.GetState() != CurrentGameState.Won;
+        return _state.GetState() != CurrentGameState.Lost && _state.GetState() != CurrentGameState.Won;
     }
 }
