@@ -30,7 +30,7 @@ public class HangmanGameTestShould
     {
         var result = _hangmanGame.Guess(guess);
         
-        Assert.That(result.State, Is.EqualTo(GameState.CORRECT_GUESS));
+        Assert.That(result.State, Is.EqualTo(GameState.CorrectGuess));
         Assert.That(result.Word, Is.EqualTo(expected));
         Assert.That(result.UsedTries, Is.EqualTo(0));
         Assert.That(result.RemainingTries, Is.EqualTo(10));
@@ -43,7 +43,7 @@ public class HangmanGameTestShould
         
         var result = _hangmanGame.Guess('G');
 
-        Assert.That(result.State, Is.EqualTo(GameState.CORRECT_GUESS));
+        Assert.That(result.State, Is.EqualTo(GameState.CorrectGuess));
         Assert.That(result.Word, Is.EqualTo("H__G___"));
         Assert.That(result.UsedTries, Is.EqualTo(0));
         Assert.That(result.RemainingTries, Is.EqualTo(10));
@@ -54,7 +54,7 @@ public class HangmanGameTestShould
     {
         var result = _hangmanGame.Guess('N');
 
-        Assert.That(result.State, Is.EqualTo(GameState.CORRECT_GUESS));
+        Assert.That(result.State, Is.EqualTo(GameState.CorrectGuess));
         Assert.That(result.Word, Is.EqualTo("__N___N"));
         Assert.That(result.UsedTries, Is.EqualTo(0));
         Assert.That(result.RemainingTries, Is.EqualTo(10));
@@ -67,7 +67,7 @@ public class HangmanGameTestShould
 
         var result = _hangmanGame.Guess('N');
 
-        Assert.That(result.State, Is.EqualTo(GameState.LETTER_ALREADY_GUESSED));
+        Assert.That(result.State, Is.EqualTo(GameState.LetterAlreadyGuessed));
         Assert.That(result.Word, Is.EqualTo("__N___N"));
         Assert.That(result.UsedTries, Is.EqualTo(0));
         Assert.That(result.RemainingTries, Is.EqualTo(10));
@@ -79,7 +79,7 @@ public class HangmanGameTestShould
     {
         var result = _hangmanGame.Guess('X');
 
-        Assert.That(result.State, Is.EqualTo(GameState.WRONG_GUESS));
+        Assert.That(result.State, Is.EqualTo(GameState.WrongGuess));
         Assert.That(result.Word, Is.EqualTo("_______"));
         Assert.That(result.UsedTries, Is.EqualTo(1));
         Assert.That(result.RemainingTries, Is.EqualTo(9));
@@ -95,7 +95,7 @@ public class HangmanGameTestShould
         
         var result = _hangmanGame.Guess('M');
         
-        Assert.That(result.State, Is.EqualTo(GameState.WON));
+        Assert.That(result.State, Is.EqualTo(GameState.Won));
         Assert.That(result.Word, Is.EqualTo("HANGMAN"));
         Assert.That(result.UsedTries, Is.EqualTo(0));
         Assert.That(result.RemainingTries, Is.EqualTo(10));
@@ -112,7 +112,7 @@ public class HangmanGameTestShould
         
         var result = _hangmanGame.Guess('M');
         
-        Assert.That(result.State, Is.EqualTo(GameState.WON));
+        Assert.That(result.State, Is.EqualTo(GameState.Won));
         Assert.That(result.Word, Is.EqualTo("HANGMAN"));
         Assert.That(result.UsedTries, Is.EqualTo(2));
         Assert.That(result.RemainingTries, Is.EqualTo(8));
@@ -133,7 +133,7 @@ public class HangmanGameTestShould
 
         var result = _hangmanGame.Guess('O');
         
-        Assert.That(result.State, Is.EqualTo(GameState.LOOSE));
+        Assert.That(result.State, Is.EqualTo(GameState.Loose));
         Assert.That(result.Word, Is.EqualTo("_______"));
         Assert.That(result.UsedTries, Is.EqualTo(10));
         Assert.That(result.RemainingTries, Is.EqualTo(0));
@@ -156,7 +156,7 @@ public class HangmanGameTestShould
 
         var result = _hangmanGame.Guess('O');
         
-        Assert.That(result.State, Is.EqualTo(GameState.LOOSE));
+        Assert.That(result.State, Is.EqualTo(GameState.Loose));
         Assert.That(result.Word, Is.EqualTo("HA___A_"));
         Assert.That(result.UsedTries, Is.EqualTo(10));
         Assert.That(result.RemainingTries, Is.EqualTo(0));
