@@ -12,4 +12,4 @@ ____|_____
 ```
 
 ## Input
-- Letters in Uppercase A-Z
+- Letters (A-Z) in Uppercase
