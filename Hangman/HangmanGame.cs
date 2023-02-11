@@ -1,5 +1,6 @@
 ﻿namespace Hangman;
 
+
 public class HangmanGame
 {
     private readonly HashSet<char> _guessedLetters = new();
@@ -22,13 +23,17 @@ public class HangmanGame
     {
         if (_guessedLetters.Contains(guess))
         {
-            return new GuessResponse(_tries, GuessResult.LETTER_ALREADY_GUESSED, _word);
+            return new GuessResponse(_tries, GameState.LETTER_ALREADY_GUESSED, _word);
         }
 
         if (!_wordToGuess.Contains(guess))
         {
             _tries++;
-            return new GuessResponse(_tries, GuessResult.WRONG_GUESS, _word);
+            if (_tries == 10)
+            {
+                return new GuessResponse(_tries, GameState.LOOSE, _word);
+            }
+            return new GuessResponse(_tries, GameState.WRONG_GUESS, _word);
         }
 
         for (var i = 0; i < _word.Length; i++)
@@ -39,7 +44,12 @@ public class HangmanGame
             }
         }
 
+        if (_wordToGuess == _word)
+        {
+            return new GuessResponse(_tries, GameState.WON, _word);
+        }
+
         _guessedLetters.Add(guess);
-        return new GuessResponse(_tries, GuessResult.CORRECT_GUESS, _word);
+        return new GuessResponse(_tries, GameState.CORRECT_GUESS, _word);
     }
 }

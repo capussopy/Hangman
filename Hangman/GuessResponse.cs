@@ -2,14 +2,17 @@
 
 public class GuessResponse
 {
-    public int Tries { get; }
-    public GuessResult Result { get; }
+    private const int NumberOfTries = 10;
+    public int UsedTries { get; }
+    public int RemainingTries { get; }
+    public GameState State { get; }
     public string Word { get; }
 
-    public GuessResponse(int tries, GuessResult result, string word)
+    public GuessResponse(int usedTries, GameState state, string word)
     {
-        Tries = tries;
-        Result = result;
+        UsedTries = usedTries;
+        RemainingTries = NumberOfTries - usedTries;
+        State = state;
         Word = word;
     }
 }
