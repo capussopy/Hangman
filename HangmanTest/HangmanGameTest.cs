@@ -1,20 +1,21 @@
 ﻿using Hangman;
 using Hangman.core;
-using HangmanTest.helper;
+using Moq;
 
 namespace HangmanTest;
 
 public class HangmanGameTestShould
 {
     private const string TestWord = "HANGMAN";
-    private RandomWordGenerator _generator;
+    private Mock<RandomWordGenerator> _generatorMock;
     private HangmanGame _hangmanGame;
 
     [SetUp]
     public void SetUp()
     {
-        _generator = new TestListRandomWordGenerator(TestWord);
-        _hangmanGame = new HangmanGame(_generator);
+        _generatorMock = new Mock<RandomWordGenerator>();
+        _generatorMock.Setup(g => g.GetNext()).Returns(TestWord);
+        _hangmanGame = new HangmanGame(_generatorMock.Object);
     }
 
     [Test]
