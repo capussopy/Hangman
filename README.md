@@ -1,5 +1,6 @@
 ﻿# Hangman in Console
-
+![dotnet.yml](https://github.com/capussopy/Hangman/actions/workflows/dotnet.yml/badge.svg) 
+ 
 Hangman is a game that chooses a random word , and you try to guess the word. If you make `10` incorect guesses you lose the game.
 
 ```
