@@ -10,7 +10,7 @@ public class TextFileRandomWordGenerator: RandomWordGenerator
     public TextFileRandomWordGenerator()
     {
         var path = Directory.GetParent(Directory.GetCurrentDirectory())!.Parent!.Parent!.Parent!.FullName;
-        foreach (var word in File.ReadLines($@"{path}\words.txt", Encoding.UTF8))
+        foreach (var word in File.ReadLines($@"{path}/words.txt", Encoding.UTF8))
         {
           _words.Add(word);
         }
